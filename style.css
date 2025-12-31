@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:wght@700&display=swap');
+
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #ffffff;
+    --text-color: #2e2b41;
+    --input-color: #f3f0ff;
+    --success-color: #2ecc71;
+    --error-color: #ff4444;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 12pt;
+    color: var(--text-color);
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(./images/background-image1.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: var(--secondary-color);
+    width: 450px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+form {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* General Input Group Styling */
+form div:not(.password-group-wrapper):not(.password-group) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form label {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color); /* Used color for icons instead of fill */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 10px;
+    font-size: 1.2rem;
+}
+
+form input {
+    width: 100%;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border: 2px solid transparent;
+    background-color: var(--input-color);
+    border-radius: 0 10px 10px 0;
+    transition: border 0.3s ease;
+    outline: none;
+}
+
+form input:focus { border: 2px solid var(--primary-color); }
+div:has(input:focus) > label { background-color: var(--text-color); }
+div:has(input:focus) > input { border: 2px solid var(--text-color); }
+
+/* Wrapper for Password + Checklist */
+.password-group-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stacks input on top of list */
+}
+
+.password-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.password-group .toggle-pass {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* --- UPDATED CHECKLIST STYLES (Under Input) --- */
+.password-checklist {
+    list-style: none;
+    margin-top: 8px;
+    padding: 0 5px;
+    width: 100%;
+    display: none;
+}
+
+.password-checklist.visible {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping if space is tight */
+    justify-content: flex-start; /* Aligns items to the left/start */
+    gap: 10px; /* Space between items */
+}
+
+.password-checklist li {
+    font-size: 0.75rem; 
+    color: #888;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+/* Icons */
+.password-checklist li::before {
+    content: "●";
+    margin-right: 5px;
+    font-size: 0.6rem;
+    color: #ccc;
+}
+
+/* Valid State */
+.password-checklist li.valid {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.password-checklist li.valid::before {
+    content: "✓";
+    color: var(--success-color);
+    font-size: 0.8rem;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form button:active { background-color: var(--text-color); }
+a { text-decoration: none; color: var(--primary-color); }
+a:hover { text-decoration: underline; }
+
+/* Error States */
+.incorrect label { background-color: var(--error-color) !important; }
+.incorrect input { border: 2px solid var(--error-color) !important; }
+
+.error-message {
+    color: var(--error-color);
+    font-weight: bold;
+    margin-bottom: 15px; 
+    display: none;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .container { width: 95%; margin: 10px; }
+}
