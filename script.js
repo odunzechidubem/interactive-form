@@ -23,7 +23,7 @@ if (signupForm) {
     const confirmPasswordInput = document.getElementById("confirm-password");
     const signupErrorMsg = document.getElementById("error-message");
 
-    // Checklist Elements (ADDED reqNumber)
+    // Checklist Elements
     const checklist = document.getElementById("password-checklist");
     const reqLength = document.getElementById("req-length");
     const reqUpper = document.getElementById("req-upper");
@@ -48,7 +48,6 @@ if (signupForm) {
             checklist.classList.add("visible");
         });
         passwordInput.addEventListener("blur", () => {
-            // Optional: Hide checklist on blur
             checklist.classList.remove("visible");
         });
 
@@ -64,7 +63,7 @@ if (signupForm) {
             // Lower
             if(/[a-z]/.test(val)) reqLower.classList.add("valid"); else reqLower.classList.remove("valid");
             
-            // Number (NEW)
+            // Number 
             if(/[0-9]/.test(val)) reqNumber.classList.add("valid"); else reqNumber.classList.remove("valid");
             
             // Symbol
@@ -160,7 +159,6 @@ if (loginForm) {
     const loginPasswordInput = document.getElementById("login-password");
     const loginErrorMsg = document.getElementById("error-message");
 
-    // Initialize Toggle for Login
     togglePassword("login-password", "toggle-show-password");
 
     // Mock Database
@@ -169,7 +167,6 @@ if (loginForm) {
         { email: "admin@test.com", password: "admin", phone: "+2347035215601" }
     ];
 
-    // Clear Errors on Input
     [loginEmailInput, loginPasswordInput].forEach(input => {
         input.addEventListener("input", () => {
             input.parentElement.classList.remove("incorrect");
@@ -224,11 +221,9 @@ if (loginForm) {
             loginEmailInput.value = "";
     loginPasswordInput.value = "";
 
-    // Optional: remove red error styling
     loginEmailInput.parentElement.classList.remove("incorrect");
     loginPasswordInput.parentElement.classList.remove("incorrect");
 
-    // Optional: focus back to email input
     loginEmailInput.focus();
         }
     });
