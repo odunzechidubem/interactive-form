@@ -57,7 +57,6 @@ form {
     gap: 15px;
 }
 
-/* General Input Group Styling */
 form div:not(.password-group-wrapper):not(.password-group) {
     width: 100%;
     display: flex;
@@ -69,7 +68,7 @@ form label {
     width: 50px;
     height: 50px;
     background-color: var(--primary-color);
-    color: var(--secondary-color); /* Used color for icons instead of fill */
+    color: var(--secondary-color); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,11 +92,10 @@ form input:focus { border: 2px solid var(--primary-color); }
 div:has(input:focus) > label { background-color: var(--text-color); }
 div:has(input:focus) > input { border: 2px solid var(--text-color); }
 
-/* Wrapper for Password + Checklist */
 .password-group-wrapper {
     width: 100%;
     display: flex;
-    flex-direction: column; /* Stacks input on top of list */
+    flex-direction: column; 
 }
 
 .password-group {
@@ -116,7 +114,6 @@ div:has(input:focus) > input { border: 2px solid var(--text-color); }
     color: var(--text-color);
 }
 
-/* --- UPDATED CHECKLIST STYLES (Under Input) --- */
 .password-checklist {
     list-style: none;
     margin-top: 8px;
@@ -127,9 +124,9 @@ div:has(input:focus) > input { border: 2px solid var(--text-color); }
 
 .password-checklist.visible {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping if space is tight */
-    justify-content: flex-start; /* Aligns items to the left/start */
-    gap: 10px; /* Space between items */
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    gap: 10px; 
 }
 
 .password-checklist li {
@@ -140,7 +137,6 @@ div:has(input:focus) > input { border: 2px solid var(--text-color); }
     align-items: center;
 }
 
-/* Icons */
 .password-checklist li::before {
     content: "●";
     margin-right: 5px;
@@ -148,7 +144,6 @@ div:has(input:focus) > input { border: 2px solid var(--text-color); }
     color: #ccc;
 }
 
-/* Valid State */
 .password-checklist li.valid {
     color: var(--success-color);
     font-weight: bold;
@@ -177,7 +172,6 @@ form button:active { background-color: var(--text-color); }
 a { text-decoration: none; color: var(--primary-color); }
 a:hover { text-decoration: underline; }
 
-/* Error States */
 .incorrect label { background-color: var(--error-color) !important; }
 .incorrect input { border: 2px solid var(--error-color) !important; }
 
