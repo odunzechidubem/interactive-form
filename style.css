@@ -6,7 +6,7 @@
     --text-color: #2e2b41;
     --input-color: #f3f0ff;
     --success-color: #2ecc71;
-    --error-color: #ff4444;
+    --error-color: #ff0000;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -187,3 +187,4 @@ a:hover { text-decoration: underline; }
 @media (max-width: 500px) {
     .container { width: 95%; margin: 10px; }
 }
+
